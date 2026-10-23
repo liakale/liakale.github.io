@@ -1,0 +1,133 @@
+/* ------------------------------------------------------------ Colours */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #2b2d2f;
+  --muted: #6c6f73;
+  --rule: #ebebea;
+  --accent: #2f5d50;      /* forest green: name, links, active page */
+}
+
+/* ------------------------------------------------------------ Base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+  font-size: 1.22rem;
+  line-height: 1.6;
+}
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { text-decoration-thickness: 2px; }
+.wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ------------------------------------------------------------ Top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+.topbar ul {
+  display: flex; justify-content: flex-end; gap: 1.75rem;
+  list-style: none; margin: 0 auto; height: 3.75rem; align-items: center;
+}
+.topbar a {
+  color: var(--text);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+.topbar a:hover { color: var(--accent); }
+.topbar a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ------------------------------------------------------------ Home */
+.masthead { margin: 3.5rem 0 2.25rem; }
+h1 {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-weight: 600;
+  font-size: 3.4rem;
+  line-height: 1.1;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+.subtitle { font-style: italic; color: var(--muted); margin: 0; }
+
+.home {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 3.25rem;
+  align-items: start;
+}
+.profile { text-align: center; }
+.photo {
+  width: 14rem; height: 14rem;
+  border-radius: 50%; object-fit: cover;
+  border: 5px solid #fff;                     /* white ring, as on LinkedIn */
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16);
+}
+.icons { display: flex; justify-content: center; gap: 1.1rem; margin: 1rem 0 0; }
+.icons a { color: var(--accent); }
+.icons a:hover { opacity: 0.7; }
+.icons svg { width: 1.3rem; height: 1.3rem; display: block; }
+
+.bio p { margin: 0 0 1.1rem; text-align: justify; hyphens: auto; }
+
+.advisors {
+  margin-top: 2rem; padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.advisors h2 { font-size: 1.45rem; margin: 0 0 0.5rem; }
+.advisors ul { list-style: none; margin: 0; padding: 0; }
+.advisors li { margin-bottom: 0.25rem; }
+
+/* ------------------------------------------------------------ Inner pages */
+.page { padding-top: 3.5rem; padding-bottom: 2rem; }
+.page h1 { margin-bottom: 1.5rem; }
+h2 {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin: 2.25rem 0 1rem;
+}
+
+/* Papers */
+.paper { margin-bottom: 1.25rem; }
+.paper p { margin: 0; }
+.paper .title { font-weight: 600; }
+.paper .authors { color: var(--muted); font-style: italic; }
+.paper .abstract { margin-top: 0.5rem; font-size: 1rem; text-align: justify; hyphens: auto; }
+.paper .venues { color: var(--muted); font-size: 0.95rem; }
+.paper .paper-links { margin-top: 0.2rem; font-size: 0.95rem; }
+
+/* Teaching */
+.entries { list-style: none; margin: 0; padding: 0; }
+.entries li {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.entries .year { color: var(--muted); white-space: nowrap; }
+
+footer {
+  max-width: 56rem; margin: 4rem auto 0; padding: 1.25rem 1.5rem 2.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted); font-size: 0.85rem; text-align: center;
+}
+
+/* ------------------------------------------------------------ Phones */
+@media (max-width: 720px) {
+  body { font-size: 1.02rem; }
+  .topbar ul { justify-content: center; gap: 1.25rem; }
+  .masthead { margin-top: 2.25rem; text-align: center; }
+  h1 { font-size: 2.4rem; }
+  .home { grid-template-columns: 1fr; gap: 1.75rem; }
+  .photo { width: 11rem; height: 11rem; }
+  .bio p { text-align: left; }
+}
